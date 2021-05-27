@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIAGET</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            /* margin: 0 auto;
+            padding: 0px; */
+            background-color: rgb(238, 237, 237);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .content {
+            max-width: 1920px;
+            margin: 0 auto;
+            background-color: #fff;
+        }
+
+        .navbarwrapup {
+            width: 96%;
+            margin: 0 auto;
+
+            /* padding: 10px 48px; */
+        }
+
+        .secondaryLeft {
+            flex: 0 1 50%;
+            font-size: .875rem;
+            border-bottom: 1.5px solid rgb(216, 216, 216);
+            padding: 10px 0px;
+        }
+
+
+        .secondaryLeft ul :nth-child(2) {
+            margin: 0px 5px;
+        }
+
+        .secondaryLeftMobile {
+            flex: 1 1 50%;
+        }
+
+        .secondaryLeftMobile ul :nth-child(1),
+        .secondaryRightMobile ul :nth-child(1) {
+            margin-right: 8px;
+        }
+
+        .secondaryLeftMobile ul :nth-child(2),
+        .secondaryRightMobile ul :nth-child(2) {
+            margin-left: 8px;
+        }
+
+        /* margin-left出不來 */
+
+        .secondaryCenter {
+            margin: 0 auto;
+            flex: 0 0 auto;
+            /* flex:grow shrink basic*/
+            padding: 10px 40px;
+
+        }
+
+        .secondaryCenter img {
+            width: 100%;
+            height: auto;
+        }
+
+
+
+        @media (max-width:992px) {
+            .secondaryCenter {
+                flex: 0 1 auto;
+            }
+        }
+
+
+        .secondaryRight {
+            border-bottom: 1.5px solid rgb(216, 216, 216);
+            flex: 0 1 50%;
+            gap: 5px;
+            font-size: .875rem;
+            padding: 10px 0px;
+        }
+
+        .secondaryRightMobile {
+            flex: 1 1 50%;
+        }
+
+        svg {
+            width: 23px;
+            height: 23px;
+        }
+
+        .searchiconwrap {
+            background-color: #002a3a;
+            padding: 1px;
+        }
+
+        .navbarwrapdown {
+            margin: 0 auto;
+        }
+
+        .navbarwrapdown ul {
+            margin-bottom: 0px;
+        }
+
+        .navbarwrapdown ul li {
+            padding: 10px 0px 12px;
+            line-height: 1.5;
+            margin: 0px 13px;
+            color: #333;
+            font-size: .875rem;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .banner {
+            position: relative;
+        }
+
+        /* .introtextwrap {
+            width: 100%;
+            margin: 0 auto;
+        } */
+
+        .extrabg {
+            width: 100%;
+            height: 200px;
+            background-color: rgba(70, 94, 125, 1);
+            background-image: linear-gradient(180deg, rgba(70, 94, 125, 0), rgba(70, 94, 125, 1));
+        }
+
+
+        .slider {
+            background-color: #fff;
+            transform: translateY(-10%);
+            /* z-index: 2; */
+        }
+
+        .introtext {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            color: #fff;
+            transform: translateX(-50%);
+            /* transform的基準是自己 */
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .introtext h1 {
+            font-size: 3.75rem;
+            font-weight: 700;
+        }
+
+        @media (max-width:992px) {
+            .introtext h1 {
+                font-size: 2.5rem;
+                white-space: normal;
+            }
+        }
+
+        /* .introtext h2,
+        p {
+            word-wrap: break-word;
+        } */
+
+        .introtext .button {
+            border: 1px solid #fff;
+            padding: 13px 20px;
+            /* margin: 0px 20px; */
+        }
+
+        .buttonwrap div:nth-child(2) {
+            margin-left: 20px !important;
+        }
+
+
+        /* 小孩若沒有相同標籤 怎麼選所有小孩? */
+
+        .sliderSectionWrap {
+            margin: 0 auto;
+        }
+
+        .row {
+            padding: 20px;
+        }
+
+        .exploreMore {
+            width: 140px;
+            height: 50px;
+            padding: 13px 20px;
+            background-color: #fff;
+            border: 1px solid rgb(216, 216, 216);
+        }
+
+
+        .slider h1 {
+            font-weight: bold;
+        }
+
+        .slider h1::after {
+            content: "";
+            border-bottom: 2px solid rgba(255, 217, 0, 0.972);
+            width: 30px;
+            height: 2px;
+        }
+
+        /* why ::after didn't show up */
+
+        .productPrice ::before {
+            content: "NT$";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centent">
+        <div class="navbarwrap">
+            <div class="navbarwrapup d-flex align-items-center">
+                <div class="secondaryLeft d-none d-lg-flex align-items-center">
+                    <ul class="d-flex list-unstyled mb-0 ">
+                        <li class="d-flex align-items-center">
+                            <svg class="ico ico--int ico--medium mrgr--" aria-label="您目前的地點" focusable="false"
+                                role="img">
+                                <path
+                                    d="M10 0a10 10 0 1010 10A10 10 0 0010 0zm0 19c-1.24 0-2.58-1.6-3.35-4.2a18.79 18.79 0 016.69 0c-.77 2.6-2.1 4.2-3.34 4.2zm0-5.5a19.59 19.59 0 00-3.6.33A17.54 17.54 0 016 10.5h8a17.55 17.55 0 01-.39 3.33A19.59 19.59 0 0010 13.5zM10 1c1.24 0 2.57 1.6 3.35 4.2a18.67 18.67 0 01-3.35.3 18.58 18.58 0 01-3.34-.3C7.43 2.6 8.76 1 10 1zm0 5.5a19.59 19.59 0 003.6-.33A17.54 17.54 0 0114 9.5H6a17.54 17.54 0 01.4-3.33 19.53 19.53 0 003.6.33zm-5 3H1a8.94 8.94 0 011.58-4.59 11.38 11.38 0 001.21.55A14.72 14.72 0 005.43 6 18.6 18.6 0 005 9.5zm0 1a18.59 18.59 0 00.43 3.5 13.1 13.1 0 00-2.84 1A8.94 8.94 0 011 10.5zm10 0h4a8.94 8.94 0 01-1.56 4.59 13.07 13.07 0 00-2.84-1 18.59 18.59 0 00.4-3.59zm0-1a18.59 18.59 0 00-.43-3.5 13.1 13.1 0 002.84-1A8.94 8.94 0 0119 9.5zm1.8-5.39a12.31 12.31 0 01-2.48.89 9.81 9.81 0 00-1.81-3.63 9 9 0 014.28 2.74zM7.49 1.36A9.81 9.81 0 005.68 5a13.77 13.77 0 01-1.53-.47c-.33-.13-.64-.26-.94-.41a9 9 0 014.28-2.76zM3.21 15.89A12.31 12.31 0 015.68 15a9.81 9.81 0 001.81 3.63 9 9 0 01-4.28-2.74zm9.3 2.75A9.81 9.81 0 0014.32 15a12.3 12.3 0 012.47.88 9 9 0 01-4.28 2.76z">
+                                </path>
+                            </svg>
+                            <span>臺灣</span>
+                        </li>
+                        <li><svg class="ico ico--phone ico--medium" focusable="false" aria-labelledby="ico" role="img">
+                                <title id="ico">聯絡我們</title>
+                                <use xlink:href="./imgs/icons.svg#phone">
+                                </use>
+                            </svg><span>+886 2 8101 8399</span></li>
+                        <li><svg class="ico ico--geolocation ico--medium" focusable="false" viewBox="0 0 28 28"
+                                role="img">
+                                <path
+                                    d="M14 6.92a3.84 3.84 0 103.84 3.84A3.85 3.85 0 0014 6.92zm0 6.32a2.48 2.48 0 112.48-2.48A2.48 2.48 0 0114 13.24z">
+                                </path>
+                                <path
+                                    d="M14 0a10.77 10.77 0 00-8.24 17.69L14 28l8.24-10.3A10.77 10.77 0 0014 0zm7.19 16.82l-7.19 9-7.19-9a9.4 9.4 0 1114.38 0z">
+                                </path>
+                            </svg><span>專賣店</span></li>
+                    </ul>
+                </div>
+                <div class="secondaryLeftMobile d-flex d-lg-none">
+                    <ul class="d-flex list-unstyled ">
+                        <li><svg class="ico ico--menu topbar__ico" focusable="false" viewBox="0 0 20 20" role="img">
+                                <path d="M1 2h18v1H1zm0 7h18v1H1zm0 7h18v1H1z"></path>
+                            </svg></li>
+                        <li><svg class="ico ico--magnifying-glass topbar__ico" aria-label="搜尋" focusable="false"
+                                viewBox="0 0 28 28" role="img">
+                                <path
+                                    d="M27.71 26.78L19 18.09a10.87 10.87 0 10-1 1l8.69 8.69a.72.72 0 001-1zM1.51 10.86a9.43 9.43 0 119.43 9.43 9.44 9.44 0 01-9.43-9.43z">
+                                </path>
+                            </svg></li>
+                    </ul>
+                </div>
+                <div class="secondaryCenter">
+                    <img src="https://www.piaget.com/images/vendor/@liip/piaget-styleguide/logo.png" srcset="
+                    https://www.piaget.com/images/vendor/@liip/piaget-styleguide/logo.png,
+                    https://www.piaget.com/images/vendor/@liip/piaget-styleguide/logo@2x.png 2x" class="logo"
+                        title="Piaget" alt="伯爵">
+                </div>
+
+
+                <div class="secondaryRight d-none d-lg-flex justify-content-end">
+                    <div class="searchwrap">
+                        <input type="text" placeholder="搜尋">
+                    </div>
+                    <div class="searchiconwrap">
+                        <svg class="ico ico--magnifying-glass ico--medium" focusable="false" viewBox="0 0 28 28"
+                            role="img" fill="#fff">
+                            <path
+                                d="M27.71 26.78L19 18.09a10.87 10.87 0 10-1 1l8.69 8.69a.72.72 0 001-1zM1.51 10.86a9.43 9.43 0 119.43 9.43 9.44 9.44 0 01-9.43-9.43z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="secondaryRightMobile d-flex d-lg-none justify-content-end">
+                    <ul class="d-flex d-lg-none list-unstyled ">
+                        <li><svg class="ico ico--phone ico--medium" focusable="false" aria-labelledby="ico" role="img">
+                                <title id="ico">聯絡我們</title>
+                                <use xlink:href="./imgs/icons.svg#phone">
+                                </use>
+                            </svg></li>
+                        <li><svg class="ico ico--geolocation ico--medium" focusable="false" viewBox="0 0 28 28"
+                                role="img">
+                                <path
+                                    d="M14 6.92a3.84 3.84 0 103.84 3.84A3.85 3.85 0 0014 6.92zm0 6.32a2.48 2.48 0 112.48-2.48A2.48 2.48 0 0114 13.24z">
+                                </path>
+                                <path
+                                    d="M14 0a10.77 10.77 0 00-8.24 17.69L14 28l8.24-10.3A10.77 10.77 0 0014 0zm7.19 16.82l-7.19 9-7.19-9a9.4 9.4 0 1114.38 0z">
+                                </path>
+                            </svg></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="navbarwrapdown d-none d-lg-block">
+                <ul class="list-unstyled d-flex justify-content-center">
+                    <li>腕錶</li>
+                    <li>珠寶</li>
+                    <li>特別場合</li>
+                    <li>高級珠寶</li>
+                    <li>伯爵</li>
+                    <li>服務</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="imgwrap">
+            <picture>
+                <source
+                    srcset="https://piaget.rokka.io/intro-block-spaced-top-lg-6/o-dpr-2/c0d30b0ff152b05ab7c4eac5c1dec29308831e16.jpg 2x, https://piaget.rokka.io/intro-block-spaced-top-lg-6/c0d30b0ff152b05ab7c4eac5c1dec29308831e16.jpg 1x"
+                    media="(min-width: 1025px)">
+                <source
+                    srcset="https://piaget.rokka.io/intro-block-spaced-top-md-6/o-dpr-2/331be87483fe9e78cf7eb288e7a939592629bd37.jpg 2x, https://piaget.rokka.io/intro-block-spaced-top-md-6/331be87483fe9e78cf7eb288e7a939592629bd37.jpg 1x"
+                    media="(min-width: 745px)">
+                <source
+                    srcset="https://piaget.rokka.io/intro-block-spaced-top-sm-6/o-dpr-2/65fbea1bf77f12896b9e6e9d78cffa800813a5ad.jpg 2x, https://piaget.rokka.io/intro-block-spaced-top-sm-6/65fbea1bf77f12896b9e6e9d78cffa800813a5ad.jpg 1x"
+                    media="(min-width: 516px)">
+
+                <img src="https://piaget.rokka.io/intro-block-spaced-top-6/fc22cb91f9d3670bec5c63517a0a83460f5e62f3.jpg"
+                    alt="Piaget Polo Skeleton高級腕錶" class="intro-block__image ">
+            </picture>
+            <!-- <div class="extrabg"></div> -->
+        </div>
+        <div class="introtextwrap">
+            <div class="introtext">
+                <h1>
+                    PIAGET POLO系列推出鏤空錶款
+                </h1>
+                <p>伯爵著名高級運動腕錶煥然一新</p>
+                <div class="buttonwrap d-block d-md-flex justify-content-center ">
+                    <div class="button buttonleft mx-auto mx-md-0 mb-3" style="width: fit-content;">
+                        探索腕錶
+                    </div>
+                    <div class="button buttonright mx-auto mx-md-0 mb-3" style="width: fit-content;">
+                        欣賞影片
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <section class="slider">
+            <div class="row">
+                <div class="col-12 d-sm-block d-md-flex sliderSectionWrap">
+                    <div class="col-12 col-md-5 photo">
+                        <picture><img src="./imgs/abc37bf8fad611f12f3a835070b2448af042a602.jpg" alt=""></picture>
+                    </div>
+                    <div class=" d-flex flex-column align-items-center justify-content-center col-12 col-md-7 textarea">
+                        <h1>孔曉振與Possession系列</h1>
+                        <p>
+                            伯爵與亞洲品牌大使孔曉振合作的Possession系列廣告
+                        </p>
+                        <button class="exploreMore">
+                            探索更多
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="productList">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3 productEach">
+                    <picture>
+                        <source media="(min-width: 745px)"
+                            srcset="https://piaget.rokka.io/product-tile-md-1/o-dpr-2/311929954b63748f33c77af1b418457699221f8a.jpg 2x, https://piaget.rokka.io/product-tile-md-1/311929954b63748f33c77af1b418457699221f8a.jpg 1x"
+                            data-srcset="https://piaget.rokka.io/product-tile-md-1/o-dpr-2/311929954b63748f33c77af1b418457699221f8a.jpg 2x, https://piaget.rokka.io/product-tile-md-1/311929954b63748f33c77af1b418457699221f8a.jpg 1x">
+                        <source media="(min-width: 516px)"
+                            srcset="https://piaget.rokka.io/product-tile-sm-1/o-dpr-2/311929954b63748f33c77af1b418457699221f8a.jpg 2x, https://piaget.rokka.io/product-tile-sm-1/311929954b63748f33c77af1b418457699221f8a.jpg 1x"
+                            data-srcset="https://piaget.rokka.io/product-tile-sm-1/o-dpr-2/311929954b63748f33c77af1b418457699221f8a.jpg 2x, https://piaget.rokka.io/product-tile-sm-1/311929954b63748f33c77af1b418457699221f8a.jpg 1x">
+                        <img src="https://piaget.rokka.io/product-tile-1/311929954b63748f33c77af1b418457699221f8a.jpg"
+                            data-src="https://piaget.rokka.io/product-tile-1/311929954b63748f33c77af1b418457699221f8a.jpg"
+                            alt="Possession項鏈" class="product__img lazyloaded">
+                    </picture>
+                    <div class="productBody">
+                        <h5 class="productTitle">Possession項鏈</h5>
+                        <div class="productReference">
+                            G33PF200
+                        </div>
+                        <div class="productLabel ">全新</div>
+                        <div class="productDescription">白金鑽石項鏈</div>
+                        <div class="productPrice">
+                            213,000
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3 productEach">
+                    <picture>
+                        <source media="(min-width: 745px)"
+                            srcset="https://piaget.rokka.io/product-tile-md-1/o-dpr-2/c6a2be159657a437691c7599d9e35a5539cb823e.jpg 2x, https://piaget.rokka.io/product-tile-md-1/c6a2be159657a437691c7599d9e35a5539cb823e.jpg 1x"
+                            data-srcset="https://piaget.rokka.io/product-tile-md-1/o-dpr-2/c6a2be159657a437691c7599d9e35a5539cb823e.jpg 2x, https://piaget.rokka.io/product-tile-md-1/c6a2be159657a437691c7599d9e35a5539cb823e.jpg 1x">
+                        <source media="(min-width: 516px)"
+                            srcset="https://piaget.rokka.io/product-tile-sm-1/o-dpr-2/c6a2be159657a437691c7599d9e35a5539cb823e.jpg 2x, https://piaget.rokka.io/product-tile-sm-1/c6a2be159657a437691c7599d9e35a5539cb823e.jpg 1x"
+                            data-srcset="https://piaget.rokka.io/product-tile-sm-1/o-dpr-2/c6a2be159657a437691c7599d9e35a5539cb823e.jpg 2x, https://piaget.rokka.io/product-tile-sm-1/c6a2be159657a437691c7599d9e35a5539cb823e.jpg 1x">
+                        <img src="https://piaget.rokka.io/product-tile-1/c6a2be159657a437691c7599d9e35a5539cb823e.jpg"
+                            data-src="https://piaget.rokka.io/product-tile-1/c6a2be159657a437691c7599d9e35a5539cb823e.jpg"
+                            alt="Possession經典指環" class="product__img ls-is-cached lazyloaded">
+                    </picture>
+                    <div class="productBody">
+                        <h5 class="productTitle">Possession經典指環</h5>
+                        <div class="productReference">
+                            G34P3F00
+                        </div>
+                        <div class="productLabel ">專賣店獨家發售</div>
+                        <div class="productDescription">白金經典指環，鑲飾美鑽<br>指環寬度：3.8毫米</div>
+                        <div class="productPrice">
+                            510,000
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3 productEach">
+                    <picture>
+                        <source media="(min-width: 745px)"
+                            srcset="https://piaget.rokka.io/product-tile-md-1/o-dpr-2/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg 2x, https://piaget.rokka.io/product-tile-md-1/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg 1x"
+                            data-srcset="https://piaget.rokka.io/product-tile-md-1/o-dpr-2/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg 2x, https://piaget.rokka.io/product-tile-md-1/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg 1x">
+                        <source media="(min-width: 516px)"
+                            srcset="https://piaget.rokka.io/product-tile-sm-1/o-dpr-2/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg 2x, https://piaget.rokka.io/product-tile-sm-1/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg 1x"
+                            data-srcset="https://piaget.rokka.io/product-tile-sm-1/o-dpr-2/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg 2x, https://piaget.rokka.io/product-tile-sm-1/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg 1x">
+                        <img src="https://piaget.rokka.io/product-tile-1/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg"
+                            data-src="https://piaget.rokka.io/product-tile-1/9aaa97d8b318b022916b5363aad02e3f132d3454.jpg"
+                            alt="Piaget Polo Skeleton腕錶" class="product__img ls-is-cached lazyloaded">
+                    </picture>
+                    <div class="productBody">
+                        <h5 class="productTitle">
+                            Piaget Polo Skeleton腕錶
+                        </h5>
+                        <div class="productReference">
+                            G0A45004
+                        </div>
+                        <div class="productLabel ">全新</div>
+                        <div class="productDescription">精鋼自動上鏈鏤空腕錶 - 42毫米</div>
+                        <div class="productPrice">
+                            895,000
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3 productEach">
+                    <picture>
+                        <source media="(min-width: 745px)"
+                            srcset="https://piaget.rokka.io/product-tile-md-1/o-dpr-2/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg 2x, https://piaget.rokka.io/product-tile-md-1/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg 1x"
+                            data-srcset="https://piaget.rokka.io/product-tile-md-1/o-dpr-2/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg 2x, https://piaget.rokka.io/product-tile-md-1/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg 1x">
+                        <source media="(min-width: 516px)"
+                            srcset="https://piaget.rokka.io/product-tile-sm-1/o-dpr-2/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg 2x, https://piaget.rokka.io/product-tile-sm-1/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg 1x"
+                            data-srcset="https://piaget.rokka.io/product-tile-sm-1/o-dpr-2/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg 2x, https://piaget.rokka.io/product-tile-sm-1/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg 1x">
+                        <img src="https://piaget.rokka.io/product-tile-1/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg"
+                            data-src="https://piaget.rokka.io/product-tile-1/90a35b7254c1a3d9ab8f6c5d3eca53db35871e8d.jpg"
+                            alt="Possession結婚指環" class="product__img ls-is-cached lazyloaded">
+                    </picture>
+                    <div class="productBody">
+                        <h5 class="productTitle">
+                            Possession結婚指環
+                        </h5>
+                        <div class="productReference">
+                            G34PJ900
+                        </div>
+                        <!-- <div class="productLabel ">全新</div> -->
+                        <div class="productDescription">白金結婚指環，鑲襯美鑽</div>
+                        <div class="productPrice">
+                            61,000起
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+
+</body>
+
+</html>
